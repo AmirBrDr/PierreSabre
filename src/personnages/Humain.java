@@ -15,7 +15,7 @@ public class Humain {
 	public int getArgent() {
 		return argent;
 	}
-	private void parler(String texte) {
+	protected void parler(String texte) {
 		System.out.println(texte);
 	}
 	public void direBonjour() {
@@ -33,11 +33,18 @@ public class Humain {
 			parler("Je n'ai pas assez d'argent");
 		}
 	}
-	private void perdreArgent(int montant) {
+	void perdreArgent(int montant) {
 		this.argent-=montant;
+		if(this.argent<0) {
+			this.argent=0;
+		}
 	}
-	public void gagnerArgent(int montant) {
-		this.argent+=montant;
+	void gagnerArgent(int montant) {
+		if(montant<0) {
+			parler("montant est negatif!");
+		}
+		else this.argent+=montant;
 	}
+	
 	
 }
