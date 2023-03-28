@@ -5,6 +5,7 @@ public class Yakuza extends Humain {
 	private int reputation = 0;
 	public Yakuza(String nom,String boisson,int argent,String clan) {
 		super(nom,boisson,argent);
+		this.clan= clan;
 	}
 	void extorquer(Commercant commercant) {
 		int montant=commercant.seFaireExtorquer();
